@@ -107,6 +107,7 @@ header form {
 .container-filter {
 	display: flex;
 	justify-content: flex-end;
+	padding-bottom: 15px;
 }
 
 .icon-filter {
