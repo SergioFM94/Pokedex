@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FilterBar, PokemonList } from '../components';
 import { PokemonContext } from '../context/PokemonContext';
 
+
 export const HomePage = () => {
 
     const {onClickLoadMore, active, setActive} = useContext(PokemonContext)
