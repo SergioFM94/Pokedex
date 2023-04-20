@@ -1,18 +1,25 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { PokemonContext } from '../context/PokemonContext';
 
 export const Navigation = () => {
-  const { onInputChange, valueSearch, onResetForm } = useContext(PokemonContext);
+  const { onResetForm } = useContext(PokemonContext);
   const navigate = useNavigate();
 
-  const onSearchInputChange = e => {
-    const value = e.target.value;
-    onInputChange(e);
-    if (value && value.trim() !== '') { 
+  const [searchValue, setSearchValue] = useState('');
+
+  const onInputChange = e => {
+    setSearchValue(e.target.value);
+  };
+
+  const onSearchSubmit = e => {
+    e.preventDefault();
+    if (searchValue && searchValue.trim() !== '') { 
       navigate('/search', {
-        state: value,
+        state: searchValue,
       });
+      console.log(searchValue);
+      onResetForm();
     }
   };
 
@@ -23,7 +30,7 @@ export const Navigation = () => {
           <img src='https://camo.githubusercontent.com/418d92ecbe7cd1805153001a34147ab7c965103432ff4a68eaa2fc5d4e6c1b42/68747470733a2f2f696b2e696d6167656b69742e696f2f6877796b73766a3469762f706f6b656465785f4e5f576757724a4b30732e706e67'/>
         </Link>
 
-        <form>
+        <form onSubmit={onSearchSubmit}>
           <div className='form-group'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -43,12 +50,14 @@ export const Navigation = () => {
               type='search'
               name='valueSearch'
               id=''
-              value={valueSearch}
-              onChange={onSearchInputChange}
+              value={searchValue}
+              onChange={onInputChange}
               placeholder='Pokemon'
               className='input-search'
             />
           </div>
+
+          <button className='btn-search'>Buscar</button>
         </form>
       </header>
 
