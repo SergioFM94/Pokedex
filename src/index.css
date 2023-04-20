@@ -114,6 +114,7 @@ header form {
 	align-items: center;
 	gap: 15px;
 	cursor: pointer;
+	padding-bottom: 16px;
 }
 
 .icon-filter .icon {
@@ -133,6 +134,17 @@ header form {
 	cursor: pointer;
 	text-decoration: none;
 }
+.card-pokemon:hover{
+	scale: 1.02;
+}
+
+.card-pokemon:hover .card-img {
+	background-color: #7fffd4;
+}
+
+.card-pokemon:hover .card-info {
+	background-color: #64c7a6;
+}
 
 .card-img {
 	background-color: #f2f2f2;
@@ -142,6 +154,7 @@ header form {
 	justify-content: center;
 	border-radius: 5px 5px 0 0;
 	height: 250px;
+	transition: 0.3s;
 }
 
 .card-img img {
@@ -152,7 +165,8 @@ header form {
 .card-info {
 	padding: 15px;
 	border-radius: 0 0 5px 5px;
-	background-color: aquamarine;
+	background-color: #7fffd4;
+	transition: 0.3s;
 }
 
 .card-info h3 {
@@ -335,8 +349,8 @@ Styles of Pokemon Single Page
 }
 
 .container-img-pokemon img {
-	height: 100%;
-	width: 100%;
+	height: auto;
+	width: auto;
 }
 
 .container-info-pokemon {
@@ -375,6 +389,7 @@ Styles of Pokemon Single Page
 	display: flex;
 	gap: 50px;
 	align-items: center;
+	margin-top: 100px;
 }
 
 .stats {
@@ -469,6 +484,7 @@ Styles of Pokemon Single Page
 		justify-content: flex-end;
 		max-width: 300px;
 		margin-bottom: 20px;
+		margin-bottom: 16px;
 	}
 
 	.icon-filter{
@@ -498,9 +514,14 @@ Styles of Pokemon Single Page
 	}
 
 	.container-img-pokemon{
-		max-width: 180px;
+		width: 200px;
+		height: 200px;
 	}
 
+	.container-img-pokemon img {
+		height: 200px;
+		width: 200px;
+	}
 
 	.number-pokemon{
 		position: relative;
@@ -520,6 +541,11 @@ Styles of Pokemon Single Page
 
 	.container-stats{
 		flex-direction: column;
+	}
+
+	.container-stats{
+		gap: 20px;
+		margin-top: 16px;
 	}
 
 	.card-types{

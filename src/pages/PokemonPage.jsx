@@ -41,11 +41,13 @@ export const PokemonPage = () => {
 						<div className='container-info-pokemon'>
 							<h1 className='pokemon-name'>{primerMayuscula(pokemon.name)}</h1>
 							<div className='card-types info-pokemon-type'>
-								{pokemon.types.map(type => (
+							{pokemon.types.forEach(type => {
+								return (
 									<span key={type.type.name} className={`${type.type.name}`}>
-										{type.type.name}
+									{type.type.name}
 									</span>
-								))}
+								);
+							})}
 							</div>
 							<div className='info-pokemon'>
 								<div className='group-info'>
